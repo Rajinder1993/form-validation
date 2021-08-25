@@ -1,0 +1,486 @@
+<div class="account_template">
+  <div class="template_acc">
+    <div class="template_background">
+      <picture>
+         <source media="(min-width:767px)" srcset="https://cdn.shopify.com/s/files/1/0582/2755/6543/files/Bitmap_12.png">
+         <img src="https://cdn.shopify.com/s/files/1/0582/2755/6543/files/resgister_mobile.png" alt="image">
+      </picture>
+      <div class="account_store">
+      <div class="Container">
+        <div class="account_content">
+          <h3>CREATE AN ACCOUNT</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Vivamus bibendum eros sit amet diam consequat interdum. Integer 
+            tortor nunc, bibendum at turpis eu, placerat tincidunt nibh.
+            Suspendisse eu pulvinar turpis, vitae cursus nibh. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section data-section-id="reset-password" data-section-type="reset-password">
+  <div class="container_mini">
+     <div class="Container">
+    <div class="Page_extraNarrow">
+      {%- form 'create_customer', name: 'create_customer', class: 'Form Form--spacingTight', id: 'create_customer' -%}
+      <div class="accordian_register"> 
+        <header class="Form__Header">
+          <h1 class="Form__Title Heading u-h1">Your details</h1>
+        </header>
+        <img class="open_accordian" src="https://cdn.shopify.com/s/files/1/0582/2755/6543/files/Path_2_Copy_11.png?v=1628137638">
+      </div>
+      <div class="accordian_custom">
+        {%- if form.errors -%}
+          <div class="Form__Alert Alert Alert--error">
+            <ul class="Alert__ErrorList">
+              {%- for field in form.errors -%}
+                {%- if field == 'form' -%}
+                  <li class="Alert__ErrorItem">{{ form.errors.messages[field] }}</li>
+                {%- else -%}
+                  <li class="Alert__ErrorItem"><strong>{{ form.errors.translated_fields[field] }}</strong> {{ form.errors.messages[field] }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+	
+        {%- if request.locale.iso_code == 'ja' -%}
+          <div class="Form__Item">
+            <input type="text" class="Form__Input" name="customer[last_name]" aria-label="Enter your last name *" placeholder="{{ 'customer.register.last_name' | t }}">
+            <label class="Form__floatingLabel">{{ 'customer.register.last_name' | t }}</label>
+          </div>
+
+          <div class="Form__Item">
+            <input type="text" class="Form__Input" name="customer[first_name]" aria-label="Enter your first name*" placeholder="{{ 'customer.register.first_name' | t }}" autofocus>
+            <label class="Form__floatingLabel">{{ 'customer.register.first_name' | t }}</label>
+          </div>
+        {%- else -%}
+          <div class="Form__Item">
+              <label class="Form__floatingLabel">Enter your first name *</label>
+            <input type="text" class="Form__Input firstname" name="customer[first_name]" aria-label="Enter your first name*" placeholder="" autofocus required="required">
+          
+          </div>
+
+          <div class="Form__Item">
+             <label class="Form__floatingLabel">Enter your last name *</label>
+            <input type="text" class="Form__Input lastname" name="customer[last_name]" aria-label="Enter your last name *" placeholder="">
+           
+          </div>
+        {%- endif -%}
+
+      
+        <div class="Form__Item">
+            <label class="Form__floatingLabel">Your email address *</label>
+          <input type="email" class="Form__Input email" name="customer[email]" aria-label="Your email address *" placeholder="" required="required">
+        
+        </div>
+ 		<div class="Form__Item">
+            <label class="Form__floatingLabel">{{ 'customer.register.password' | t }} *</label>
+          <span class="error_message_pwd" style="display:none">Please enter more than 5 characters</span>
+          <input type="password" class="Form__Input password" name="customer[password]" aria-label="{{ 'customer.register.password' | t }}" placeholder="" required="required">
+        </div>
+      
+         <div class="Form__Item">
+            <label class="Form__floatingLabel">Enter a contact number *</label>
+          <input type="number" class="Form__Input contact_number" name="customer[contact]" aria-label="Enter a contact number*" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="" required="required">
+         
+        </div>
+      
+          <div class="Form__Item">
+            <label class="Form__floatingLabel">Your date of birth *</label>
+             
+          <input type="date" data-date-format="DD/MM/YYYY" min="1800-01-01"  class="Form__Input dateofbirth" name="customer[note][DOB]" aria-label="Your date of birth*" required="required">
+         
+        </div>
+      
+       <div class="Form_Item chk-form">
+         <input type="checkbox" name="customer[tags]" value="subscribed"><span> Sign up to our newsletter</span>
+      </div>
+      <div class="Form_Item chk-form">
+      <input type="checkbox"value="" required/> <span>I have read and understood the Terms and Conditions and the Catherine Best Privacy Policy</span>
+      </div>
+        
+        <div class="error-message" style="display:none">
+          Please fill fields correctly
+        </div>
+        
+        <button type="submit" class="Form__Submit Button Button--primary Button--full register_btn">CREATE AN ACCOUNT</button>
+      </div>
+      {%- endform -%}
+    </div>
+    </div>
+    <div class="Container">
+    <div class="sub_content">
+      <h1>HAVE A CATHERINE BEST ACCOUNT?</h1>
+      <div class="sign_in">
+        <a href="/account/login">Sign in <img src="https://cdn.shopify.com/s/files/1/0582/2755/6543/files/Path_2_Copy_2_588727ef-17cb-4b11-b13c-db9657b25820.png?v=1628137096" class="arrow-img"></a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+  .template_background {
+    position: relative;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+.account_store {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+
+  .account_content {
+    width: 768px;
+    max-width: 623px;
+}
+
+.account_content h3 {
+    font-size: 50px;
+    line-height: 68px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #000000;
+  	margin-bottom: 30px;
+}
+
+.account_content p {
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+}
+  .container_mini {
+    max-width: 1260px;
+    margin: 0 auto;
+/*     padding: 0 10px; */
+}
+
+.sub_content {
+    text-align: center;
+  margin-bottom: 14rem;
+}
+  .Form_Item span {
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    padding-left: 10px;
+}
+.accordian_custom .Form__Item {
+    margin-bottom: 25px;
+} 
+.Form__Submit::before {
+    background: unset;
+}
+
+.Form__Submit {
+    background: #FFFFFF;
+    border: 1px solid #B47D14;
+    box-sizing: border-box;
+    max-width: 620px;
+    margin: 4rem auto 6rem auto;
+}
+  .Form__Item label {
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    padding-bottom: 10px;
+    display: block;
+}
+  .accordian_register {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.open_accordian {
+    width: 40px;
+}
+  .error_message_pwd{
+  font-size:14px;
+    color:red;
+  }
+.accordian_register h1 {
+        font-size: 50px;
+    line-height: 55px;
+    letter-spacing: 1px;
+    color: #000000;
+    text-transform: capitalize;
+  font-weight: 400 !important;
+}
+
+.accordian_register .Form__Header {
+    margin-bottom: 0px;
+}
+#create_customer {
+    margin-top: 80px;
+}
+
+.accordian_register {
+    margin-bottom: 30px;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+}
+/* input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+} */
+input[type="date"] {
+    text-transform: uppercase;
+    color:gray;
+}
+.chk-form {
+    padding: 10px 0;
+}
+.sign_in a {
+    font-size: 22px;
+    line-height: 30px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.sign_in a .arrow-img {
+    padding-left: 10px;
+}
+/*   .accordian_custom {
+    display: none;
+} */
+
+.accordian_custom.open_content {
+    display: none;
+}
+
+.accordian_register .open_accordian {
+    transform: rotate(0deg);
+    transition: 1s all;
+}
+
+
+.accordian_register.open_content .open_accordian {
+    transform: rotate(180deg);
+}
+@media screen and (max-width: 1200px){
+.account_content h3 {
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}  
+  .account_content p {
+    font-size: 16px;
+    line-height: 28px;
+}	
+}
+  @media screen and (max-width:767px){
+  .account_store {
+    position: relative;
+    transform: unset;
+    left: 0;
+    padding: 30px 0;
+}
+
+.account_content {
+    max-width: 100%;
+}
+
+.account_content h3 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    margin-bottom: 8px;
+}
+
+.account_content p {
+    font-size: 16px;
+    line-height: 28px;
+}
+.sub_content {
+  margin-bottom: 5rem;
+}
+.accordian_register h1 {
+    font-size: 25px;
+}
+.Form__Item label,.form-group label,.chk-form span {
+    font-size: 16px;
+    line-height: 20px;
+}
+    .Form__Submit {
+        margin: 2rem auto 4rem auto;
+    }
+#create_customer {
+    margin-top: 0px;
+}
+.template_background {
+    border-bottom: 0;
+}
+.open_accordian {
+    width: 30px;
+} 
+.sub_content h1 {
+    font-size: 20px;
+}
+.sign_in a {
+    font-size: 18px;
+    line-height: 26px;
+}
+.accordian_register {
+    margin-bottom: 15px;
+    padding-top: 15px;
+}
+  .sub_content h1 {
+    font-size: 50px;
+    font-weight: 400;
+}
+#shopify-product-reviews .spr-form-input-email, 
+#shopify-product-reviews .spr-form-input-text, 
+#shopify-product-reviews .spr-form-input-textarea, 
+.Form__Input, .Form__Textarea {
+    padding: 8px;
+}
+.accordian_custom .Form__Item {
+    margin-bottom: 15px;
+}
+.form-group {
+    margin-bottom: 15px;
+}   
+    .Form__Input::placeholder,.dateofbirth::placeholder {
+    font-size: 13px;
+}
+
+  }
+@media screen and (max-width:375px)  {
+.account_content h3 {
+    font-size: 22px;
+}
+.account_content p {
+    line-height: 26px;
+}
+.accordian_register h1 {
+    font-size: 22px;
+    line-height: 30px;
+}  
+}  
+  .error-message {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+  .template_background img {
+    border-bottom: 1px solid;
+}
+</style>
+<script>
+  $('.accordian_register').click(function(){
+    $('.accordian_custom,.accordian_register').toggleClass('open_content');
+  })
+  
+  
+  
+  
+   $(".register_btn").click(function(e){
+     
+   
+  $(".firstname,.email,.password,.contact_number,.dateofbirth").css("border","1px solid #f0f0f0");
+     
+     
+
+  var name =$(".firstname").val();
+      var lastname =$(".lastname").val();
+  var email =$(".email").val();
+  var password =$(".password").val();
+  var contact_number =$(".contact_number").val();
+  var dateofbirth =$('.dateofbirth').val();
+
+     var d = new Date();
+     var convert_month = ( '0' + (d.getMonth()+1) ).slice( -2 );
+    var strDate = d.getFullYear() + "/" + ( '0' + (d.getMonth()+1) ).slice( -2 ) + "/" + d.getDate();
+    var dateofbirth = $('.dateofbirth').val();
+     
+     
+    var new_month_f = (d.toLocaleString('default', { month: 'short' })).toUpperCase();
+	var date_today = d.getDate();
+     var year_today = d.getFullYear();
+    
+    var new_system_date = dateofbirth;
+      var new_format_date = year_today + '-' + convert_month + '-' +date_today;
+    console.log(strDate + '---' +dateofbirth.replaceAll('-','/'));
+     
+     alert(new_system_date + '////' + new_format_date)
+     
+   
+     
+  if(name.length < 1 || lastname.length < 1 || email.length < 1 || password.length < 5 || contact_number.length < 7 || dateofbirth == '' || dateofbirth == '2001-01-01' || dateofbirth == '2066-01-01' ){
+	  e.preventDefault(); 
+  if(name.length < 1){
+    $(".firstname").css('border','1px solid red');
+     $(".firstname").attr("placeholder","First name can't be blank ");
+  }
+     if(lastname.length < 1){
+    $(".lastname").css('border','1px solid red');
+     $(".lastname").attr("placeholder","Last name can't be blank ");
+  }
+  if(email.length < 1){
+    $(".email").css('border','1px solid red');
+       $(".email").attr("placeholder","Email can't be blank ");
+  }
+  if(password.length < 5){
+    $(".password").css('border','1px solid red');
+     $(".error_message_pwd").show();
+     $(".password").attr("placeholder","Password length should be greater than 5 ");
+  }
+    else{
+     $(".error_message_pwd").hide();
+    }
+  if(contact_number.length < 7){
+    $(".contact_number").css('border','1px solid red');
+    
+     $(".contact_number").attr("placeholder","Number should be greater than 7 ");
+  }
+  if(dateofbirth == '0001-01-01' || dateofbirth == '2066-01-01' || dateofbirth == '' || (dateofbirth.replaceAll('-','/')) > strDate || (new_system_date.replaceAll('-','/')) > (new_format_date.replaceAll('-','/')) ){
+    
+    $(".dateofbirth").css('border','1px solid red');
+      $(".dateofbirth").attr("placeholder","Date Of Bith can't be this ");
+  }
+    
+    
+    $('.error-message').show();
+   }
+   else {
+	   $('.error-message').hide(); 
+   } 
+    });
+  
+  $('.Form__Input').keydown(function(){
+    var focus_val = $(this).val().length;
+    if($(this).hasClass('password')){
+      
+    if(focus_val > 5){
+      $(this).css('border','1px solid #000');
+       $(".error_message_pwd").hide();
+    }else{
+    $(".error_message_pwd").show();
+    }
+      
+    }
+    else
+    {
+     if(focus_val > 0){
+      $(this).css('border','1px solid #000');
+    }
+    }
+   
+  })
+  
+</script>  
